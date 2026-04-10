@@ -32,6 +32,22 @@
     <title>Archery Flow</title>
     <link href="<?= $base_url ?>/assets/css/styles.css" rel="stylesheet">
     <style>
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 0.5s ease-out;
+    }
+
     /* Custom scrollbar untuk sidebar */
     .overflow-y-auto::-webkit-scrollbar {
         width: 6px;
@@ -54,7 +70,7 @@
     <?php include './assets/include/origin_include/header.php'; ?>
     <?php include './assets/include/origin_include/sidebar.php'; ?>
 
-    <main class="relative top-5 md:ml-64 transition-all duration-300">
+    <main class="relative top-5 md:ml-64 animate-fade-in transition-all duration-300">
         <div class="container mx-auto px-4 py-6 space-y-4">
             <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
                 <h2 class="text-white text-2xl font-bold">Selamat Datang!</h2>
