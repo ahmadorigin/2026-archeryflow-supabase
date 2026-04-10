@@ -95,8 +95,8 @@
 
         // Gabungkan pakai koma sebagai LEM-nya
         $filter = implode(",", $fields);
-
         $endpoint = "/rest/v1/tb_penjualan?select=*&or=(" . $filter . ")&order=id.desc";
+        
         return s_query("GET", $endpoint);
     }
 

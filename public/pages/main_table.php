@@ -10,12 +10,19 @@
 
     if (isset($_GET["cari"])) {
         $rows = search($_GET["keyword"]);
+
+        if ($rows) {
+            $noData = true;
+        } else {
+            $noData = false;
+        }
+
     } else {
         // Ambil semua data seperti biasa jika tidak sedang mencari
         $noData = true;
         $rows = s_query("GET", "/rest/v1/tb_penjualan?select=*&order=id.desc");
     }
-
+    
     $page_title = "Main Table";
     $user_name = 'Admin Archery';
 
