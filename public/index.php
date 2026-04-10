@@ -4,14 +4,16 @@
     require __DIR__ . "/../src/config/globals.php";
 
     session_start();
+    
+    // Logika Keamanan: Jika tidak ada session, lempar ke login
     if (!isset($_SESSION["login"])) {
-        header("Location: ./pages/login.php");
+        header("Location: " . $base_url . "/pages/login.php");
+        exit; // WAJIB ada agar kode di bawah tidak dijalankan
     }
 
     if (isset($_GET["cari"])) {
         $rows = search($_GET["keyword"]);
     } else {
-        // Ambil semua data seperti biasa jika tidak sedang mencari
         $noData = true;
         $rows = s_query("GET", "/rest/v1/tb_penjualan?select=*&order=id.desc");
     }
@@ -28,7 +30,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archery Flow</title>
-    <link href="/my-self-project/2026-archeryflow-supabase/public/assets/css/styles.css" rel="stylesheet">
+    <link href="<?= $base_url ?>/assets/css/styles.css" rel="stylesheet">
     <style>
     /* Custom scrollbar untuk sidebar */
     .overflow-y-auto::-webkit-scrollbar {
@@ -54,7 +56,6 @@
 
     <main class="relative top-5 md:ml-64 transition-all duration-300">
         <div class="container mx-auto px-4 py-6 space-y-4">
-            <!-- Konten utama di sini -->
             <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
                 <h2 class="text-white text-2xl font-bold">Selamat Datang!</h2>
                 <p class="text-white/70 mt-2">Ini adalah konten utama dashboard Anda.</p>
@@ -66,8 +67,7 @@
     </main>
 
     <?php include './assets/include/origin_include/footer.php'; ?>
-    <script src="./assets/js/toggle_sidebar.js"></script>
-
+    <script src="<?= $base_url ?>/assets/js/toggle_sidebar.js"></script>
 </body>
 
 </html>

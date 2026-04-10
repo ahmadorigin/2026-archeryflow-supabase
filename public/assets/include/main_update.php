@@ -144,10 +144,10 @@
                 Reset Form
             </button>
 
-            <a href="../index.php"
+            <a href="./main_table.php"
                 class="px-6 py-2.5 bg-white/10 hover:bg-white/20 text-white/80 hover:text-white rounded-lg transition-all duration-200 flex items-center justify-center gap-2 border border-white/10">
                 <span>←</span>
-                Kembali ke Dashboard
+                Kembali ke Main Table
             </a>
         </div>
     </form>

@@ -5,7 +5,7 @@
 
     session_start();
     if (!isset($_SESSION["login"])) {
-        header("Location: login.php");
+        header("Location: " . $base_url . "/pages/login.php");
     }
     
     $id = $_GET["id"];

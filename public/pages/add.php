@@ -5,7 +5,7 @@
 
     session_start();
     if (!isset($_SESSION["login"])) {
-        header("Location: login.php");
+        header("Location: " . $base_url . "/pages/login.php");
     }
  
     // cek apakah tombol submit sudah ditekan atau belum
@@ -15,7 +15,7 @@
             echo "
                 <script>
                     alert('Data berhasil ditambahkan!');
-                    document.location.href = '../index.php';
+                    document.location.href = './main_table.php';
                 </script>
                 ";
         }

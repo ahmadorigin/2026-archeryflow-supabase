@@ -23,7 +23,7 @@
             </div>
 
             <!-- Pesan Data Tidak Ditemukan -->
-            <?php if(empty($rows)) : ?>
+            <?php if(empty($noData)) : ?>
             <div class="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-lg">
                 <p class="text-red-400 italic flex items-center gap-2">
                     <span>⚠️</span>
@@ -72,7 +72,7 @@
                                         🔬 Detail
                                     </a>
                                     <!-- Delete Button -->
-                                    <a href="../../src/controllers/delete.php?id=<?= $row["id"]; ?>"
+                                    <a href="../delete.php?id=<?= $row["id"]; ?>"
                                         onclick="return confirm('Yakin ingin menghapus data ini?')"
                                         class="px-3 py-1 bg-red-500/20 hover:bg-red-500/30 text-red-300 rounded-md text-xs font-medium transition-all hover:shadow-[0_0_8px_rgba(239,68,68,0.3)]">
                                         🗑️ Delete

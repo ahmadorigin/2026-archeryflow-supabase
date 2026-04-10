@@ -1,10 +1,11 @@
 <?php
 
-    require 'functions.php';
+    require '../src/controllers/functions.php';
 
     session_start();
     if (!isset($_SESSION["login"])) {
-        header("Location: ../../public/pages/login.php");
+        header("Location: " . $base_url . "/pages/login.php");
+        exit;
     }
 
     $id = $_GET["id"];
@@ -13,7 +14,7 @@
         echo "
             <script>
                 alert('Data berhasil dihapus!');
-                document.location.href = '../../public/index.php';
+                document.location.href = './pages/main_table.php';
             </script>
         ";
     }

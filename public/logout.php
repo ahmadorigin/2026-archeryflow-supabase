@@ -8,5 +8,5 @@
     setcookie('id', '', time() - 30 * 24 * 60 * 60);
     setcookie('key', '', time() - 30 * 24 * 60 * 60);
 
-    header("Location: ../../public/pages/login.php");
+    header("Location: ./pages/login.php");
     exit;
