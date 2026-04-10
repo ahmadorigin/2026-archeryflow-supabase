@@ -8,5 +8,9 @@
     "postcss": "^8.5.9",
     "postcss-cli": "^11.0.1",
     "tailwindcss": "^4.2.2"
+  },
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./src/css/input.css -o ./public/assets/css/styles.css",
+    "start": "php -S 0.0.0.0:$PORT -t public"
   }
 }

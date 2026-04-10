@@ -29,7 +29,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archery Flow</title>
     <link href="/my-self-project/2026-archeryflow-supabase/public/assets/css/styles.css" rel="stylesheet">
-    <link href="/my-self-project/2026-archeryflow-supabase/public/assets/css/output.css" rel="stylesheet">
     <style>
     /* Custom scrollbar untuk sidebar */
     .overflow-y-auto::-webkit-scrollbar {
