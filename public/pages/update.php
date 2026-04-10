@@ -35,7 +35,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubah data penjualan</title>
-    <link href="../assets/css/styles.css" rel="stylesheet">
+    <link href="<?= $base_url ?>/assets/css/styles.css" rel="stylesheet">
 </head>
 
 <body class="bg-linear-to-br from-gray-900 via-gray-800 to-black">

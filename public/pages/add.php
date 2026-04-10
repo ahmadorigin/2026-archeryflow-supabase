@@ -33,7 +33,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah data penjualan</title>
-    <link href="../assets/css/styles.css" rel="stylesheet">
+    <link href="<?= $base_url ?>/assets/css/styles.css" rel="stylesheet">
     <style>
     /* Custom scrollbar untuk sidebar */
     .overflow-y-auto::-webkit-scrollbar {

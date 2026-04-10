@@ -1,6 +1,7 @@
 <?php
 
     session_start();
+    require __DIR__ . "/../../src/config/globals.php";
     require '../../src/controllers/functions.php';
 
     // Cetak: Apakah user sudah login? Kalau belum, cek cookie-nya
@@ -47,7 +48,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login ArcheryFlow</title>
-    <link href="/my-self-project/2026-archeryflow-supabase/public/assets/css/styles.css" rel="stylesheet">
+    <link href="<?= $base_url ?>/assets/css/styles.css" rel="stylesheet">
     <style>
     @keyframes fadeIn {
         from {
