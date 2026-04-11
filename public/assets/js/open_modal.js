@@ -58,7 +58,7 @@ function openModal(data) {
     },
     {
       label: "🚚 Ongkir",
-      value: "Rp " + (data.ognkir || 0).toLocaleString("id-ID"),
+      value: "Rp " + (data.ongkir || 0).toLocaleString("id-ID"),
     },
     {
       label: "💰 Total Harga",

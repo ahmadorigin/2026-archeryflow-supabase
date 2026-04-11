@@ -1,6 +1,7 @@
 <!-- Recent Activities -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
 
+
     <!-- Recent Activities -->
     <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 w-full">
         <h3 class="text-white font-semibold mb-4 text-xl"><span class="text-2xl">⏰</span> Aktivitas Terbaru</h3>

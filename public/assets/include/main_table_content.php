@@ -44,6 +44,7 @@
                             <th class="px-4 py-3 text-left font-semibold">Nama Produk</th>
                             <th class="px-4 py-3 text-left font-semibold">Total Harga</th>
                             <th class="px-4 py-3 text-left font-semibold">Tanggal Transaksi</th>
+                            <th class="px-4 py-3 text-left font-semibold">Status</th>
                             <th class="px-4 py-3 text-center font-semibold">Aksi</th>
                         </tr>
                     </thead>
@@ -59,6 +60,7 @@
                             <td class="px-4 py-3 text-cyan-300">Rp
                                 <?= number_format($row["total"], 0, ',', '.') ?></td>
                             <td class="px-4 py-3"><?= date('d/m/Y', strtotime($row["tanggal"])) ?></td>
+                            <td class="px-4 py-3"><?= ucfirst($row["status"]); ?></td>
                             <td class="px-4 py-3">
                                 <div class="flex justify-center gap-2">
                                     <!-- Edit Button -->
