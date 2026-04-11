@@ -25,7 +25,6 @@
     
     $page_title = "Main Table";
     $user_name = 'Admin Archery';
-
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +93,8 @@
 
     <main class="relative top-5 md:ml-64 animate-fade-in transition-all duration-300">
         <div class="container mx-auto px-4 py-6">
-            <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+            <div
+                class="bg-linear-to-r from-cyan-900/30 to-teal-900/30 backdrop-blur-sm rounded-xl p-6 border border-white/10">
                 <h2 class="text-white text-2xl font-bold">Selamat Datang!</h2>
                 <p class="text-white/70 mt-2">Ini adalah konten utama Main table Anda.</p>
             </div>

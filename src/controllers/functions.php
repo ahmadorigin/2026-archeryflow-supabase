@@ -38,8 +38,15 @@
     }
 
     function add($data) {
+        $total_harga = intval($data["harga"]) + intval($data["ongkir"]);
+
+        if ($data["status"] === 'pending') {
+            $sisa_piutang = $total_harga - intval($data["dp"]);
+        }
+
         $dataBaru = [
             "tanggal" => $data["date"],
+            "due_date" => ($data["due-date"] === "") ? null : $data["due-date"],
             "nama_pembeli" => $data["nama-pembeli"],
             "email" => $data["email"],
             "alamat_lengkap" => $data["alamat"],
@@ -49,6 +56,8 @@
             "draw_weight" => $data["draw-weight"],
             "harga" => ($data["harga"] === "") ? 0 : $data["harga"],
             "ongkir" => ($data["ongkir"] === "") ? 0 : $data["ongkir"],
+            "dp" => ($data["dp"] === "") ? 0 : $data["dp"],
+            "sisa_piutang" => ($sisa_piutang === "") ? 0 : $sisa_piutang,
             "status" => $data["status"]
         ];
 

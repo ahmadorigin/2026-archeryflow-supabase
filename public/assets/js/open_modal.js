@@ -2,7 +2,6 @@ document.querySelectorAll(".btn-detail").forEach((button) => {
   button.addEventListener("click", function () {
     const data = JSON.parse(this.getAttribute("data-detail"));
 
-    console.log(data);
     // Sekarang panggil fungsi tampilkan modal
     openModal(data);
   });
@@ -64,11 +63,30 @@ function openModal(data) {
       label: "💰 Total Harga",
       value: "Rp " + (data.total || 0).toLocaleString("id-ID"),
     },
-    {
-      label: "🔄 Status",
-      value: data.status || "-",
-    },
   ];
+
+  // LOGIKA IF ELSE NYA
+  if (data.status === "pending") {
+    items.push(
+      {
+        label: "💸 Uang Muka (DP)",
+        value: "Rp" + (data.dp || 0).toLocaleString("id-ID"),
+      },
+      {
+        label: "📉 Sisa Piutang",
+        value: "Rp" + (data.sisa_piutang || 0).toLocaleString("id-ID"),
+      },
+      {
+        label: "📅 Jatuh Tempo",
+        value: data.due_date || "-",
+      },
+    );
+  }
+
+  items.push({
+    label: "🔄 Status",
+    value: data.status === "pending" ? "⏳ Kredit" : "✅ Lunas",
+  });
 
   items.forEach((item) => {
     const li = document.createElement("li");

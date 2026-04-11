@@ -31,7 +31,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archery Flow</title>
     <link href="<?= $base_url ?>/assets/css/styles.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
     <style>
     @keyframes fadeIn {
         from {
@@ -73,7 +73,9 @@
 
     <main class="relative top-5 md:ml-64 animate-fade-in transition-all duration-300">
         <div class="container mx-auto px-4 py-6 space-y-4">
-            <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+
+            <div
+                class="bg-linear-to-r from-cyan-900/30 to-teal-900/30 backdrop-blur-sm rounded-xl p-6 border border-white/10">
                 <h2 class="text-white text-2xl font-bold">Selamat Datang!</h2>
                 <p class="text-white/70 mt-2">Ini adalah konten utama dashboard Anda.</p>
             </div>

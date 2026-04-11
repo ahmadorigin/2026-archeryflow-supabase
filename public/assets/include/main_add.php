@@ -1,4 +1,5 @@
-<div class="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 md:p-8">
+<div
+    class="bg-linear-to-r from-cyan-900/30 to-teal-900/30 backdrop-blur-sm rounded-xl border border-white/10 p-6 md:p-8">
 
     <!-- Form -->
     <form action="" method="post" class="space-y-4">
@@ -8,13 +9,36 @@
             <!-- Tanggal -->
             <div>
                 <label for="date" class="block text-white/80 text-sm font-medium mb-2">
-                    📅 Tanggal <span class="text-red-400">*</span>
+                    📅 Tanggal Transaksi <span class="text-red-400">*</span>
                 </label>
                 <input type="date" name="date" id="date" required
                     class="w-full px-4 py-2.5 bg-cyan-900/30 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all">
             </div>
 
+            <?php if(isset($type)) : ?>
+            <?php if($type === "kredit") : ?>
+            <div>
+                <label for="due-date" class="block text-white/80 text-sm font-medium mb-2">
+                    📅 Jatuh Tempo <span class="text-red-400">*</span>
+                </label>
+                <input type="date" name="due-date" id="due-date" required
+                    class="w-full px-4 py-2.5 bg-cyan-900/30 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all">
+            </div>
+            <?php endif; ?>
+            <?php endif; ?>
+
             <!-- Nama Pembeli -->
+            <?php if(isset($type)) : ?>
+            <div>
+                <label for="nama-pembeli" class="block text-white/80 text-sm font-medium mb-2">
+                    👤 Nama Pembeli <span class="text-red-400">*</span>
+                </label>
+                <input type="text" name="nama-pembeli" id="nama-pembeli"
+                    placeholder="<?= ($type == 'kredit') ? 'Wajib isi nama penghutang' : 'Nama lengkap pembeli...'; ?>"
+                    required
+                    class="w-full px-4 py-2.5 bg-cyan-900/30 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all">
+            </div>
+            <?php else : ?>
             <div>
                 <label for="nama-pembeli" class="block text-white/80 text-sm font-medium mb-2">
                     👤 Nama Pembeli <span class="text-red-400">*</span>
@@ -22,6 +46,7 @@
                 <input type="text" name="nama-pembeli" id="nama-pembeli" placeholder="Nama lengkap pembeli..." required
                     class="w-full px-4 py-2.5 bg-cyan-900/30 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all">
             </div>
+            <?php endif; ?>
 
             <!-- Email -->
             <div>
@@ -95,17 +120,21 @@
                     class="w-full px-4 py-2.5 bg-cyan-900/30 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all">
             </div>
 
-            <!-- Status -->
+            <!-- dp uang muka -->
+            <?php if(isset($type)) : ?>
+            <?php if($type === "kredit") : ?>
             <div>
-                <label for="status" class="block text-white/80 text-sm font-medium mb-2">
-                    🔄 Status
+                <label for="dp" class="block text-white/80 text-sm font-medium mb-2">
+                    ⚖️ Uang Muka (DP)
                 </label>
-                <select name="status"
-                    class="w-full px-2 py-1.5 bg-cyan-900/30 border border-white/20 rounded-lg text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all cursor-pointer">
-                    <option value="pending" class="bg-cyan-900">⏳ Pending</option>
-                    <option value="lunas" class="bg-cyan-900">✅ Lunas</option>
-                </select>
+                <input type="number" name="dp" id="dp" min="0" placeholder="50000" required
+                    class="w-full px-4 py-2.5 bg-cyan-900/30 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all">
             </div>
+            <?php endif; ?>
+            <?php endif; ?>
+
+            <!-- Status -->
+            <input type="hidden" name="status" value="<?= $status_awal ?>">
 
         </div>
 

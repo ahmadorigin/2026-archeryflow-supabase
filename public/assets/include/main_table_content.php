@@ -5,7 +5,8 @@
     <div class="h-full overflow-auto p-4 md:p-6">
 
         <!-- Container Glass untuk Konten -->
-        <div class="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-4 md:p-6">
+        <div
+            class="bg-linear-to-r from-cyan-900/30 to-teal-900/30 backdrop-blur-sm rounded-xl border border-white/10 p-4 md:p-6">
 
             <!-- Form Pencarian -->
             <div class="mb-6">
@@ -43,6 +44,7 @@
                             <th class="px-4 py-3 text-left font-semibold">Nama Pembeli</th>
                             <th class="px-4 py-3 text-left font-semibold">Nama Produk</th>
                             <th class="px-4 py-3 text-left font-semibold">Total Harga</th>
+                            <th class="px-4 py-3 text-left font-semibold">Sisa Hutang</th>
                             <th class="px-4 py-3 text-left font-semibold">Tanggal Transaksi</th>
                             <th class="px-4 py-3 text-left font-semibold">Status</th>
                             <th class="px-4 py-3 text-center font-semibold">Aksi</th>
@@ -53,18 +55,21 @@
                     <tbody>
                         <?php if(!empty($rows)): ?>
                         <?php $no = 1; foreach($rows as $row): ?>
-                        <tr class="border-b border-white/5 hover:bg-white/5 transition-colors duration-150">
+                        <tr
+                            class="border-b border-white/5 hover:bg-linear-to-r from-cyan-900/30 to-teal-900/30 transition-colors duration-150">
                             <td class="px-4 py-3"><?= $no++ ?></td>
                             <td class="px-4 py-3 font-medium"><?= htmlspecialchars($row["nama_pembeli"]) ?></td>
                             <td class="px-4 py-3"><?= htmlspecialchars($row["nama_produk"]) ?></td>
                             <td class="px-4 py-3 text-cyan-300">Rp
                                 <?= number_format($row["total"], 0, ',', '.') ?></td>
+                            <td class="px-4 py-3 text-red-400">Rp
+                                <?= number_format(($row["sisa_piutang"]), 0, ',', '.') ?></td>
                             <td class="px-4 py-3"><?= date('d/m/Y', strtotime($row["tanggal"])) ?></td>
-                            <td class="px-4 py-3"><?= ucfirst($row["status"]); ?></td>
+                            <td class="px-4 py-3"><?= ($row["status"] === "pending") ? "Kredit" : "Lunas"; ?></td>
                             <td class="px-4 py-3">
                                 <div class="flex justify-center gap-2">
                                     <!-- Edit Button -->
-                                    <a href="update.php?id=<?= $row['id']; ?>"
+                                    <a href="update.php?id=<?= $row['id']; ?>&type=<?= $row["status"]; ?>"
                                         class="px-3 py-1 bg-yellow-500/20 hover:bg-yellow-500/30 text-yellow-300 rounded-md text-xs font-medium transition-all hover:shadow-[0_0_8px_rgba(234,179,8,0.3)]">
                                         ✏️ Edit
                                     </a>

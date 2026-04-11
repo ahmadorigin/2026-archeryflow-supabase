@@ -45,12 +45,12 @@
                 </a>
 
                 <!-- Menu Item: Tambah Data -->
-                <a href="<?= $base_url ?>/pages/add.php"
+                <!-- <a href="<?= $base_url ?>/pages/add.php"
                     class="flex items-center gap-3 px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 group">
                     <span class="text-xl">➕</span>
                     <span class="font-medium">Tambah Data</span>
                     <span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">🌙</span>
-                </a>
+                </a> -->
             </nav>
 
             <!-- Spacer untuk mendorong logout ke bawah -->

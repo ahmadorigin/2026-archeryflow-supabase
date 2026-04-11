@@ -7,6 +7,9 @@
     if (!isset($_SESSION["login"])) {
         header("Location: " . $base_url . "/pages/login.php");
     }
+
+    $type = $_GET['type'] ?? 'cash';
+    $status_awal = ($type == 'kredit') ? 'pending' : 'lunas';
  
     // cek apakah tombol submit sudah ditekan atau belum
     if ( isset($_POST["submit"])) {
@@ -75,12 +78,22 @@
 
     <main class="relative top-5  md:ml-64 animate-fade-in transition-all duration-300">
         <div class="container mx-auto px-4 py-6">
-            <div class="bg-white/5 mb-5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                <h2 class="text-white text-2xl font-bold">Selamat Datang!</h2>
-                <p class="text-white/70 mt-2">Ini adalah konten utama Tambah data Anda.</p>
+            <?php if($status_awal === "lunas") : ?>
+            <div
+                class="bg-linear-to-br from-red-900/40 to-red-800/40 mb-5 backdrop-blur-sm rounded-xl p-6 border border-red-500/30">
+                <h2 class="text-white text-2xl font-bold">Selamat Datang! (Cash)</h2>
+                <p class="text-white/70 mt-2">Ini adalah konten utama Tambah data.</p>
             </div>
+            <?php else : ?>
+            <div
+                class="bg-linear-to-br from-yellow-900/40 to-amber-800/40 mb-5 backdrop-blur-sm rounded-xl p-6 border border-yellow-500/30">
+                <h2 class="text-white text-2xl font-bold">Selamat Datang! (Kredit)</h2>
+                <p class="text-white/70 mt-2">Ini adalah konten utama Tambah data.</p>
+            </div>
+            <?php endif; ?>
 
-            <div class="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 md:p-8">
+            <div
+                class="bg-linear-to-r from-cyan-900/30 to-teal-900/30 backdrop-blur-sm rounded-xl border border-white/10 p-6 md:p-8">
 
                 <!-- Header Form -->
                 <div class="mb-6 pb-4 border-b border-white/10">
