@@ -44,13 +44,6 @@
                     <span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">🌙</span>
                 </a>
 
-                <!-- Menu Item: Tambah Data -->
-                <!-- <a href="<?= $base_url ?>/pages/add.php"
-                    class="flex items-center gap-3 px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-all duration-200 group">
-                    <span class="text-xl">➕</span>
-                    <span class="font-medium">Tambah Data</span>
-                    <span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">🌙</span>
-                </a> -->
             </nav>
 
             <!-- Spacer untuk mendorong logout ke bawah -->
@@ -61,7 +54,7 @@
 
             <!-- Bagian Bawah: Logout -->
             <div class="space-y-1">
-                <a href="logout.php"
+                <a href="<?= $base_url ?>/logout.php"
                     class="flex items-center gap-3 px-3 py-2 rounded-lg text-red-300/80 hover:text-red-300 hover:bg-red-500/20 transition-all duration-200 group">
                     <span class="text-xl">🚪</span>
                     <span class="font-medium">Logout</span>
